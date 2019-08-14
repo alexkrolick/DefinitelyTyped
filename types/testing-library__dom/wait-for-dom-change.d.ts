@@ -1,5 +1,5 @@
 export function waitForDomChange(options?: {
-  container?: HTMLElement;
-  timeout?: number;
-  mutationObserverOptions?: MutationObserverInit;
+    container?: HTMLElement;
+    timeout?: number;
+    mutationObserverOptions?: MutationObserverInit;
 }): Promise<any>;

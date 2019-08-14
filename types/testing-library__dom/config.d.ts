@@ -1,10 +1,10 @@
 export interface Config {
-  testIdAttribute: string;
-  asyncWrapper(cb: (...args: any[]) => any): Promise<any>;
+    testIdAttribute: string;
+    asyncWrapper(cb: (...args: any[]) => any): Promise<any>;
 }
 
 export interface ConfigFn {
-  (existingConfig: Config): Partial<Config>;
+    (existingConfig: Config): Partial<Config>;
 }
 
 export function configure(configDelta: Partial<Config> | ConfigFn): void;
