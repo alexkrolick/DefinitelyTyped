@@ -5,17 +5,21 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface UserOptions {
-    allAtOnce?: boolean;
-    delay?: number;
+  allAtOnce?: boolean;
+  delay?: number;
 }
 
 type TargetElement = Element | Window;
 
 declare const userEvent: {
-    click: (element: TargetElement) => void;
-    dblClick: (element: TargetElement) => void;
-    selectOptions: (element: TargetElement, values: string | string[]) => void;
-    type: (element: TargetElement, text: string, userOpts?: UserOptions) => Promise<void>;
+  click: (element: TargetElement) => void;
+  dblClick: (element: TargetElement) => void;
+  selectOptions: (element: TargetElement, values: string | string[]) => void;
+  type: (
+    element: TargetElement,
+    text: string,
+    userOpts?: UserOptions,
+  ) => Promise<void>;
 };
 
 export default userEvent;
