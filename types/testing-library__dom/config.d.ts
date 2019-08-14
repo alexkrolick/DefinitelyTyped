@@ -1,10 +1,10 @@
-export interface IConfig {
+export interface Config {
   testIdAttribute: string;
-  asyncWrapper<T>(cb: Function): Promise<T>;
+  asyncWrapper(cb: (...args: any[]) => any): Promise<any>;
 }
 
-export interface IConfigFn {
-  (existingConfig: IConfig): Partial<IConfig>;
+export interface ConfigFn {
+  (existingConfig: Config): Partial<Config>;
 }
 
-export function configure(configDelta: Partial<IConfig> | IConfigFn): void;
+export function configure(configDelta: Partial<Config> | ConfigFn): void;

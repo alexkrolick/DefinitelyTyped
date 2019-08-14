@@ -13,17 +13,15 @@ export type BoundFunction<T> = T extends (
   : never;
 export type BoundFunctions<T> = { [P in keyof T]: BoundFunction<T[P]> };
 
-interface Query extends Function {
-  (container: HTMLElement, ...args: any[]):
+export type Query = (container: HTMLElement, ...args: any[]) =>
     | Error
     | Promise<HTMLElement[]>
     | Promise<HTMLElement>
     | HTMLElement[]
     | HTMLElement
     | null;
-}
 
-interface Queries {
+export interface Queries {
   [T: string]: Query;
 }
 

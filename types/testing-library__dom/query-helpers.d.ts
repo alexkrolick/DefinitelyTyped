@@ -20,16 +20,16 @@ export type AllByAttribute = (
 
 export const queryByAttribute: QueryByAttribute;
 export const queryAllByAttribute: AllByAttribute;
-export const logDOM: (htmlElement: HTMLElement) => void;
-export const getElementError: (
+export function logDom(htmlElement: HTMLElement): void;
+export function getElementError(
   message: string,
   container: HTMLElement,
-) => Error;
+): Error;
 
 /**
  * query methods have a common call signature. Only the return type differs.
  */
-type QueryMethod<Arguments extends any[], Return> = (
+export type QueryMethod<Arguments extends any[], Return> = (
   container: HTMLElement,
   ...args: Arguments
 ) => Return;
@@ -59,10 +59,10 @@ export type BuiltQueryMethods<Arguments extends any[]> = [
   GetAllBy<Arguments>,
   GetBy<Arguments>,
   FindAllBy<Arguments>,
-  FindBy<Arguments>,
+  FindBy<Arguments>
 ];
-export const buildQueries: <Arguments extends any[]>(
+export function buildQueries<Arguments extends any[]>(
   queryByAll: GetAllBy<Arguments>,
   getMultipleError: (container: HTMLElement, ...args: Arguments) => string,
   getMissingError: (container: HTMLElement, ...args: Arguments) => string,
-) => BuiltQueryMethods<Arguments>;
+): BuiltQueryMethods<Arguments>;
